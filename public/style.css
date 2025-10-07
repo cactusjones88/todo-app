@@ -1,0 +1,413 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Existing Todo App Styles */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.add-todo {
+    display: flex;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+#todoInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+#todoInput:focus {
+    outline: none;
+    border-color: #3498db;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+button {
+    padding: 15px 25px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.todo-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+    transition: all 0.3s ease;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.todo-item.completed {
+    opacity: 0.7;
+    border-left-color: #27ae60;
+    background: #f0fff4;
+}
+
+.todo-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+    accent-color: #27ae60;
+}
+
+.todo-text {
+    flex: 1;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.todo-text.completed {
+    text-decoration: line-through;
+    color: #7f8c8d;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-btn {
+    background: #e74c3c;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.stats {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #ecf0f1;
+    color: #7f8c8d;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Empty state styling */
+.todo-list:empty::before {
+    content: "No tasks yet. Add one above!";
+    text-align: center;
+    color: #bdc3c7;
+    font-style: italic;
+    display: block;
+    padding: 40px 20px;
+}
+
+/* Authentication Styles */
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-weight: 400;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.auth-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.auth-btn:active {
+    transform: translateY(0);
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 25px;
+    color: #7f8c8d;
+}
+
+.auth-switch a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* App Header Styles */
+.app-section {
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#userWelcome {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Animation for task completion */
+@keyframes completeTask {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.todo-item.completed {
+    animation: completeTask 0.3s ease;
+}
+
+/* Message styles */
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    animation: slideInRight 0.3s ease;
+    max-width: 300px;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .auth-container {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .app-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .user-info {
+        justify-content: center;
+    }
+    
+    .add-todo {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+    
+    .todo-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .todo-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
