@@ -1,3 +1,8 @@
+// Load environment variables FIRST
+require('dotenv').config();
+
+
+// ... rest of your code
 const express = require('express');
 const path = require('path');
 const connectDB = require('./config/database');
