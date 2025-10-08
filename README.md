@@ -20,11 +20,10 @@ A full-stack todo application with user authentication built with Node.js, Expre
 
 ## 📸 Screenshots
 
-*(You can add screenshots later)*
 
 ## 🚀 Live Demo
 
-[Add your deployed link here after deployment]
+(https://todo-app-production-3ab2.up.railway.app/)
 
 ## 🏃‍♂️ Quick Start
 
